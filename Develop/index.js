@@ -2,7 +2,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('./utils/generateMarkdown');
-const util = require('util');
+const path = require('path')
+
 
 
 
@@ -26,11 +27,22 @@ const questions = [{
 }, {
     type: 'input',
     name: 'Usage',
-    message: 'Provide instructions and examples for use. Include screenshots as needed.'
+    message: 'Provide instructions and examples for use.'
 }, {
-    type: 'input',
+    type: 'list',
     name: 'License',
-    message:'Please choose a license.'
+    message:'Please choose a license.',
+    choices: [
+        {value: 'MIT License'},
+        {value: 'GNU AGPLv3'},
+        {value: 'GNU GPLv3'},
+        {value: 'GNU LGPLv3'},
+        {value: 'Mozilla Public License 2.0'},
+        {value: 'Apache License 2.0'},
+        {value: 'Boost Software License 1.0'},
+        {value: 'The Unlicense'},
+        {value: 'No License'},
+    ]
 }, {
     type: 'input',
     name: 'Contributing',
@@ -45,7 +57,7 @@ const questions = [{
     message: 'Contact information for inquiries'
 }, {
     type: 'input',
-    name: 'UserName',
+    name: 'Username',
     message: 'What is your GitHub username?'
 }, {
     type: 'input',
@@ -57,7 +69,7 @@ const questions = [{
 
 // TODO: Create a function to write README file
 function writeToFile(fileName, data) {
-    fs.writeFile(fileName, data, function(err) {
+   fs.writeFile(fileName, generateMarkdown(data), function(err) {
         console.log(fileName)
         console.log(data)
         if (err) {
@@ -66,15 +78,15 @@ function writeToFile(fileName, data) {
             console.log('success')
         }
     })
-}
+};
 
 // TODO: Create a function to initialize app
 function init() {
     inquirer.prompt(questions)
     .then(function(data) {
-        writeToFile('./dist', generateMarkdown(data));
+        writeToFile(`${data.Title}.md`, data);
         console.log(data)
-    })
+    });
 }
 
 // Function call to initialize app
