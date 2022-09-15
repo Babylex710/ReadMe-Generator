@@ -18,8 +18,10 @@
   ## Usage
   To run application in the terminal, use the following command: node index.js
 
+  Walkthrough Video link: https://watch.screencastify.com/v/VIwxIKamI2F9xSgBwYND
+
   Screenshot of README file:
-    ![]()
+    ![Readme](./images/ReadmeGen.png)
 
   ## Contributing
   N/A
