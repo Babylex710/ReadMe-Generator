@@ -1,4 +1,5 @@
-# Professional README Generator
+# Readme
+  ![](https://img.shields.io/badge/license-MIT_License-blue.svg)
 
   ## Description
   The README Generator can quickly and easily generate a README file by using the command-line application in terminal. User will be asked a series of questions about the application and user input will be added to the sections of the README file. User may select a license from the drop down selection and a license badge will be dispalyed on README file. User can also input contact information for further inquiries. This allows the project creator to devote more time working on the project.
@@ -17,9 +18,6 @@
 
   ## Usage
   To run application in the terminal, use the following command: node index.js
-
-  Screenshot of README file:
-    ![]()
 
   ## Contributing
   N/A
